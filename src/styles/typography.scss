@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,300&display=swap');
+$font-first: 'Roboto', sans-serif;
+$font-second: 'Gloria Hallelujah', cursive;
+$font-text-size: 1rem;
+@mixin font-text {
+  font: $font-text-size 400 $font-first;
+  color: $color-text;
+}
+@mixin font-text-sentence {
+  font: $font-text-size 300 italic $font-first;
+  color: $color-text-sentence;
+} 
+@mixin font-text-highlight {
+  font: $font-text-size 700 $font-first;
+  color: $color-text-highlight;
+} 
+$font-title-size: 1.5rem;
+@mixin font-title {
+  font: $font-title-size $font-second;
+  color: $color-title 
+}
+@mixin font-title-contra {
+  font: $font-title-size $font-second;
+  color: $color-title-contra;
+} 
+$font-button-size: 1.4rem;
+@mixin font-button-confirm {
+  font:  $font-button-size $font-second;
+  color: $color-button-confirm-text;
+}
+@mixin font-button-additional {
+  font: $font-button-size $font-second;
+  color: $color-button-additional-text; 
+}
+@mixin font-button-disabled {
+  font:  $font-button-size $font-second;
+  color: $color-button-disabled-text;
+}
+@mixin font-price-number {
+  font:  90px $font-second;
+  color: $color-price-first; 
+}
+@mixin font-price-decimal {
+  font:  50px $font-second;
+  color: $color-price-first;
+}
+@mixin font-price-currency {
+  font: 40px $font-second;
+  color: $color-price-second;
+} 
