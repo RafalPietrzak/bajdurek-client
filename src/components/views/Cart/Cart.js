@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import {
   List, ListItem, ListItemIcon, ListItemText, IconButton, ListItemSecondaryAction,
   Grid, Divider, Typography, ListItemAvatar, Avatar, Button
@@ -7,7 +8,7 @@ import { Delete, AddBox, IndeterminateCheckBox } from '@material-ui/icons';
 import useStyles from './Cart.css';
 
 const Cart = ({
-  storyDetail, addToCart, removeFromCart, sendOrder
+  storyDetail, addToCart, removeFromCart, checkIsLogged
 }) => {
   const classes = useStyles();
   console.log('storyDetail', storyDetail);
@@ -67,7 +68,15 @@ const Cart = ({
           ).toFixed(2)
         } $</Typography>
       </List>
-      <Button variant="contained" size="large" fullWidth={true} onClick={sendOrder}>
+      {checkIsLogged || (!storyDetail.length)? '' : <Typography variant="h6">
+        Before order and pay login with google account!
+        </Typography>}
+      <Button 
+        component={Link} to="/summary" disabled={
+          checkIsLogged || (!storyDetail.length)? false : true
+        } variant="contained" 
+        size="large" fullWidth={true} 
+      >
         ORDER AND PAY
       </Button>
     </Grid>

@@ -8,8 +8,9 @@ import Detail from './components/views/Detail/DetailContainer';
 import StoryShelf from './components/views/StoryShelf/StoryShelf';
 import Story from './components/views/Story/StoryContainer';
 import NoPermission from './components/views/NoPermission/NoPermission';
+import Payment from './components/views/Payment/PaymentContainer';
 import { Alert } from '@material-ui/lab';
-
+import Summary from './components/views/Summary/SummaryContainer';
 
 class App extends React.Component {
   componentDidMount() {
@@ -40,9 +41,9 @@ class App extends React.Component {
             <Switch>
               <Route exact path='/' component={Home} />
               <Route exact path='/Story' component={Story} />
-              <Route exact path='/cart' component={Cart} />
               <Route exact path='/detail/:id' component={Detail} />
               <Route exact path='/no-permission' component={NoPermission} />
+              <Route exact path='/cart' component={Cart} />
               <Route exact path='/story-shelf' render={
                 () => this.checkIsLogged() === true
                   ? <StoryShelf /> : <NoPermission />
@@ -50,6 +51,14 @@ class App extends React.Component {
               <Route exact path='/configurator' render={
                 () => this.checkIsLogged() === true
                   ? <Configurator /> : <NoPermission />
+              } />
+              <Route exact path='/payment' render={
+                () => this.checkIsLogged() === true
+                  ? <Payment /> : <NoPermission />
+              } />
+              <Route exact path='/summary' render={
+                () => this.checkIsLogged() === true
+                  ? <Summary /> : <NoPermission />
               } />
             </Switch>
           </MainLayout>
